@@ -1,0 +1,176 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #404b69;
+    color: #283149;
+    font-family: 'Josefin Sans', sans-serif;
+}
+button {
+    height: 30px;
+    outline: none;
+    border: none;
+    background-color: #1992C4;
+    padding: 0px 20px;
+    color: #f3ecc8;
+    cursor: pointer;
+    margin: 0 2px;
+    transition: 0.3s ease;
+    font-family: 'Josefin Sans', sans-serif;
+}
+button:hover {
+    background-color: #10698e;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.chord_selection {
+    margin-bottom: 20px;
+}
+.chord_selection span, .key_selection span {
+    color: #283149;
+    margin: 0 5px;
+}
+.chord_selection select {
+    width: 70px;
+    height: 30px;
+    line-height: 16px;
+    /* vertical-align: middle; */
+    border: none;
+    outline: none;
+    background-color: #283149;
+    color: #1992C4;
+    padding: 5px;
+}
+.chord_selection select option {
+    vertical-align: middle;
+}
+
+.key_selection {
+    margin-bottom: 20px;
+}
+.mode_selection {
+    margin-bottom: 20px;
+    display: none;
+}
+.mode_selection button, .minor_selection button {
+    background-color: #283149;
+    color: #7383af;
+}
+.mode_selection button.active {
+    background-color: #1f263a;
+    color: #f3ecc8!important;
+    padding: 5px 25px 5px 20px;
+}
+.mode_selection button span {
+    margin: 0 10px 0 0;
+}
+.mode_selection button.active span {
+    color: #1992C4;
+    font-weight: bold;
+}
+.mode_selection button .modeKey {
+    color: #F8F051;
+}
+.mode_selection .available_modes span {
+    color: #F8F051;
+}
+.minor_selection {
+    margin-bottom: 20px;
+    display: none;
+}
+.minor_selection button.active {
+    color: #f3ecc8;
+    background-color: #1f263a;
+}
+.mode_info {
+    margin-bottom: 20px;
+}
+.mode_info span {
+    color: #697594;
+    margin: 0 20px;
+}
+#chord_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #f73859;
+    margin-bottom: 20px;
+}
+#chord_info .chord_title {
+    font-size: 72px;
+    color: #1992C4;
+    font-weight: bold;
+    margin: 10px 0;
+}
+#chord_info .chord_content {
+    padding: 0;
+    margin: 25px 0;
+}
+#chord_info .chord_content span {
+    margin: 0 25px;
+    font-size: 24px;
+    color: #b1d651;
+}
+
+td.active {
+    background-color: #cb7e4d!important;
+    color: #283149;
+}
+.step {
+    font-size: 10px;
+    margin-left: 5px;
+    color: #283149;
+}
+.neck table {
+    border-collapse: collapse;
+    color: #f3ecc8;
+}
+.neck table tr {
+    
+}
+.neck table td {
+    margin: 5px;
+    padding: 5px 10px;
+    text-align: center;    
+    background-color: #404b69;
+    border: 1px solid #212a42;
+    transition: 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+}
+.neck table td.selected {
+    background-color: #f8f04e!important;
+    color: #283149;
+    position: relative;
+    transition: .4s ease;
+}
+.neck table td.selected::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 27px;
+    box-shadow: 0 0 20px 2px rgba(25, 146, 196, 0.6);
+}
+.neck table th {
+    font-weight: normal;
+    padding: 5px;
+}
+.neck table .string td:first-child {
+    font-weight: bold;
+}
+.neck table .string td:nth-child(13) {
+    border-left: 2px solid #212a42;
+    border-right: 2px solid #212a42;
+}
+#strHighE td:nth-child(13) {
+    border-top: 2px solid #212a42;
+}
+#strLowE td:nth-child(13) {
+    border-bottom: 2px solid #212a42;
+}

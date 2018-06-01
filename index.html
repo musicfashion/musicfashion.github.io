@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <!-- chords selection start -->
+        <div class="chord_selection">
+            <span>Note:</span>
+            <select id="note_selection">
+                <option value="C" selected="selected">C</option>
+                <option value="C#">C#</option>
+                <option value="D">D</option>
+                <option value="D#">D#</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="F#">F#</option>
+                <option value="G">G</option>
+                <option value="G#">G#</option>
+                <option value="A">A</option>
+                <option value="A#">A#</option>
+                <option value="B">B</option>
+            </select>
+            <span>chord:</span>
+            <select id="chord">
+                <option value="minor" selected="selected">minor</option>
+                <option value="major">major</option>
+                <option value="maj6">6</option>
+                <option value="min7">min7</option>
+                <option value="7">7</option>
+                <option value="maj7">maj7</option>
+            </select>
+            <button id="build">Draw</button>
+            <span id="info"></span> 
+        </div>    
+        <!-- chords selection end -->
+
+        <!-- key selection start -->
+        <div class="key_selection">
+            <span>Choose a key:</span>
+            <button id="majorKey">Major</button>
+            <button id="minorKey">Minor</button>
+        </div>
+        <div id="chord_info">
+            <span class="chord_title"></span>
+            <div class="chord_content"></div>
+        </div>
+        <div class="mode_selection">
+            <span class="available_modes">Modes of <span></span>:</span>
+            <button id="ionian"><span class="modeKey"></span> Ionian</button>
+            <button id="dorian"><span class="modeKey"></span> Dorian</button>
+            <button id="phrygian"><span class="modeKey"></span> Phrygian</button>
+            <button id="lydian"><span class="modeKey"></span> Lydian</button>
+            <button id="mixolydian"><span class="modeKey"></span> Mixolydian</button>
+            <button id="aeolian"><span class="modeKey"></span> Aeolian</button>
+            <button id="locrian"><span class="modeKey"></span> Locrian</button>
+        </div>
+        <div class="minor_selection">
+            <button id="harmonicMinor">Harmonic minor</button>
+            <button id="melodicMinor">Melodic minor</button>
+        </div>
+        <div class="mode_info"></div>
+        <!-- key selection end -->
+        
+        
+
+        <!-- neck start -->
+        <div class="neck">
+            <table>
+                <tr class="string" id="strHighE"></tr>
+                <tr class="string" id="strB"></tr>            
+                <tr class="string" id="strG"></tr>
+                <tr class="string" id="strD"></tr>
+                <tr class="string" id="strA"></tr>
+                <tr class="string" id="strLowE"></tr> 
+                <tr id="fretNumber"></tr>
+            </table>        
+        </div>                   
+        <!-- neck end -->
+    </div>    
+    <script src="index.js"></script>
+</body>
+</html>
