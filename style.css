@@ -55,6 +55,8 @@ button:hover {
 .mode_selection {
     margin-bottom: 20px;
     display: none;
+    opacity: 0;
+    transition: .8s ease;
 }
 .mode_selection button, .minor_selection button {
     background-color: #283149;
@@ -88,6 +90,9 @@ button:hover {
 }
 .mode_info {
     margin-bottom: 20px;
+    display: none;
+    transition: 1.2s ease;
+    opacity: 0;
 }
 .mode_info span {
     color: #697594;
@@ -98,17 +103,21 @@ button:hover {
     flex-direction: column;
     align-items: center;
     color: #f73859;
-    margin-bottom: 20px;
+    margin-bottom: 20px;    
 }
 #chord_info .chord_title {
     font-size: 72px;
     color: #1992C4;
     font-weight: bold;
     margin: 10px 0;
+    transition: .3s ease;
 }
 #chord_info .chord_content {
     padding: 0;
     margin: 25px 0;
+    display: none;
+    opacity: 0;
+    transition: .4s ease;
 }
 #chord_info .chord_content span {
     margin: 0 25px;
@@ -138,7 +147,7 @@ td.active {
     text-align: center;    
     background-color: #404b69;
     border: 1px solid #212a42;
-    transition: width 0.66s ease-out;
+    transition: .2s ease;
     cursor: pointer;
     user-select: none;
 }
@@ -163,6 +172,8 @@ td.active {
 }
 .neck table .string td:first-child {
     font-weight: bold;
+    min-width: 30px;
+    padding: 5px 5px;
 }
 .neck table .string td:nth-child(13) {
     border-left: 2px solid #212a42;

@@ -347,7 +347,14 @@ document.body.addEventListener('click', function(e) {
             drawMode(buildMajor, 0, true);
             document.getElementById('ionian').classList.add('active');
             drawMode(buildMode, 0);
+            setTimeout(function () {
+                modeSelection.style.opacity = 1;
+                chordInfo.children[1].style.opacity = 1;
+                modeInfo.style.opacity = 1;
+            }, 20);
+            modeInfo.style.display = 'block';
             modeSelection.style.display = 'block';
+            chordInfo.children[1].style.display = 'block';
             counter = 0;
             break;
         case 'minorKey':
