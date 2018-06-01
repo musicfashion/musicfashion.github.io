@@ -9,6 +9,7 @@ let notes           = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'],
     modeKeys        = document.getElementsByClassName('modeKey'),
     modeSelection   = document.getElementsByClassName('mode_selection')[0],
     minorSelection  = document.getElementsByClassName('minor_selection')[0];
+    counter         = 0,
     strHighE        = getElement('strHighE'),
     strB            = getElement('strB'),
     strG            = getElement('strG'),
@@ -51,13 +52,10 @@ function buildChord(third, fifth, seventh) {
 }
 
 button.addEventListener('click', function() {
-    let td = document.getElementsByTagName('td');
-    modeSelection.style.display = 'none';
-    minorSelection.style.display = 'none';
+    clearModes();
+    cleartds();
     chordInfo.children[1].innerText = '';
-    for (let i = 0; i < td.length; i++) {
-        td[i].classList.remove('active');
-    }
+    counter = 0;
     switch (chordSelection.value) {
         case 'major': 
             buildChord(4,7);
@@ -131,6 +129,7 @@ drawNotes(7, strG);
 drawNotes(2, strD);
 drawNotes(9, strA);
 drawNotes(4, strLowE);
+drawNumbers();
 
 function showSelectedNotes (arr, key) {
     cleartds();
@@ -171,7 +170,8 @@ function buildMajor (key) {
     newKey.push(chromatic[7]);
     newKey.push(chromatic[9]);
     newKey.push(chromatic[11]);
-
+    counter++;
+    
     showSelectedNotes(newKey, true);
 
     chordInfo.children[0].innerText = key.toUpperCase() + " " + "major";
@@ -246,10 +246,9 @@ function minorVariety(key, minorType) {
 
 function drawMode (mode, step, keyNotes) {
     cleartds();
-    let td = document.getElementsByTagName('td'),
-        key;
-    for (let i = 0; i < td.length; i++) {
-        td[i].classList.remove('active');
+    let key;
+    for (let i = 0; i < tds.length; i++) {
+        tds[i].classList.remove('active');
     }
     key = mode(noteSelection.value, step);
     
@@ -346,12 +345,16 @@ document.body.addEventListener('click', function(e) {
         case 'majorKey':
             clearModes();
             drawMode(buildMajor, 0, true);
+            document.getElementById('ionian').classList.add('active');
+            drawMode(buildMode, 0);
             modeSelection.style.display = 'block';
+            counter = 0;
             break;
         case 'minorKey':
             clearModes();
             drawMode(buildMinor, 0, true);
             minorSelection.style.display = 'block';
+            counter = 0;
             break;
         case 'harmonicMinor':
             let temp = buildMinor(noteSelection.value, true);
