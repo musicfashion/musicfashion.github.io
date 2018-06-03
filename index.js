@@ -54,8 +54,12 @@ function buildChord(third, fifth, seventh) {
 button.addEventListener('click', function() {
     clearModes();
     cleartds();
+    chordInfo.children[1].style.display = 'block';
+    chordInfo.children[1].style.opacity = 1;
     chordInfo.children[1].innerText = '';
-    counter = 0;
+    for (let i = 0; i < tds.length; i++) {
+        tds[i].classList.remove('active');
+    }
     switch (chordSelection.value) {
         case 'major': 
             buildChord(4,7);
@@ -308,8 +312,23 @@ function cleartds () {
     }
 }
 function clearModes () {
-    modeSelection.style.display = 'none';
-    minorSelection.style.display = 'none';
+    modeSelection.style = {
+        display:'none',
+        opacity: 0
+    }
+    minorSelection.style = {
+        display: 'none',
+        opacity: 0
+    }
+    modeInfo.style = {
+        display: 'none',
+        opacity: 0
+    }
+    chordInfo.children[1].style = {
+        display: 'none',
+        opacity: 0,
+        transition: 'none'
+    }
     modeInfo.innerText = '';
     for(let i = 1; i < modeSelection.children.length; i++) {
         modeSelection.children[i].classList.remove('active');
@@ -355,13 +374,20 @@ document.body.addEventListener('click', function(e) {
             modeInfo.style.display = 'block';
             modeSelection.style.display = 'block';
             chordInfo.children[1].style.display = 'block';
-            counter = 0;
+            chordInfo.children[1].style.transition = '.4s ease';
             break;
         case 'minorKey':
             clearModes();
             drawMode(buildMinor, 0, true);
+            setTimeout(function () {
+                chordInfo.children[1].style.opacity = 1;
+                modeInfo.style.opacity = 1;
+                minorSelection.style.opacity = 1;
+            }, 20);
             minorSelection.style.display = 'block';
-            counter = 0;
+            chordInfo.children[1].style.display = 'block';
+            modeInfo.style.display = 'block';
+            chordInfo.children[1].style.transition = '.4s ease';
             break;
         case 'harmonicMinor':
             let temp = buildMinor(noteSelection.value, true);

@@ -83,6 +83,8 @@ button:hover {
 .minor_selection {
     margin-bottom: 20px;
     display: none;
+    opacity: 0;
+    transition: .8s ease;
 }
 .minor_selection button.active {
     color: #f3ecc8;
@@ -134,6 +136,7 @@ td.active {
     margin-left: 5px;
     color: #283149;
 }
+
 .neck table {
     border-collapse: collapse;
     color: #f3ecc8;
